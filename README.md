@@ -63,11 +63,11 @@ Link text is enclosed by square brackets [], and for inline links, the link URL 
 
 Images are almost identical to links, but an image starts with an exclamation point !.
 
-~![](url goes here)~
+`![](url goes here)~`
 
 ## Inline Code
 
-Wrap inline code with backticks ~`~ and code chunks with three ~```~
+Wrap inline code with backticks ` and code chunks with three ```
 
 ---
 
