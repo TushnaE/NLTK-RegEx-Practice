@@ -1,6 +1,7 @@
 # Table of Contents
 1. [Repo Description](#Description)
 2. [Markdown](#Markdown)
+3. [Regular Expressions](#RegEx)
 
 ---
 # Description
@@ -24,6 +25,8 @@ Italics: wrap text in single asterisks (*) or single underscores (_)
 
 Bold: wrap text in double asterisks (**) or double underscores (__)
 
+Underline: wrap text in these tags `<ins>` and `</ins>`
+
 ## Headings
 
 Headings are characterized by the hashtag symbol (#) and are activated
@@ -35,7 +38,7 @@ The more '#' the smaller the header
 
 ## Paragraphs
 
-Can either dictate a paragraph with a \ at the end of a line
+Can either dictate a paragraph with a \ at the end of a line (to force a newline)
 or with an empty line break which is characterized by a line
 that is made up of spaces, tab characters, or a new line character (enter)
 
@@ -71,5 +74,63 @@ Wrap inline code with backticks ` and code chunks with three ```
 
 ---
 
-# Regular Expressions
+# RegEx
 
+## Basic Notes
+
+It's important to use a 'raw string' specification when working with regular expressions, because otherwise the use of backslashes may get mixed up in the compiler with escape characters
+
+``` raw_string = r"Hello" ```
+
+## Importing Regular Expressions
+
+``` import re ```
+
+## String searching
+
+``` re.search(__1__,__2__) ```
+1. The substring you're searching for
+2. The larger string you're searching in
+
+## Character classes
+
+These are indicated by a square brackets inside a string `r'[]'`
+
+``` re.search(r'[aeiou]',__2__) ```
+
+## Match object
+
+Match objects always have a boolean value of True.
+
+* .string
+    * The string passed to match() or search()
+* .re
+    * Original substring searched for
+* .pos
+    * Index at which RE engine began looking for a match (start index)
+* .endpos
+    * Index at which RE engine stopped looking for a match (end index/of string)
+* .span()
+    * For match object, return the 2-tuple (m.start(group), m.end(group))
+* .start()
+    * Index of the start of the substring matched by group
+* .end()
+    * Index of the end of the substring matched by group
+
+## Inversion
+
+The inversion concept is such that the regex search/match looks for
+'anything but' what was specified. The operator `^` is used at the beginning of a bracket set to signify inversion, coupled with the bracket `[]` notation, which means that it is looking for <ins>anything except</ins> what was specified in the characters within the bracket (character class)
+
+ie. `re.search(r'[^0-9]',"Hello")`
+
+## Anchors
+
+Anchors do not relate to character classes (`[]`) and rather have to do with regular string searching of a particular substring within another string.
+
+<ins>Start of String Matching</ins>\
+One notation of an anchor is the `^`, but it is used without bracket notation and at the beginning of the substring, to indicate that you are looking for a match that is a particular set of characters, such that the match has to be at the beginning of the string being searched
+The anchor `^` represents the concept "the start of the string"
+
+<ins>End of String Matching</ins>\
+Another anchor notation is the `$` that is placed at the end of the substring, to confirm that 
