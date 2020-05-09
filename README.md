@@ -133,4 +133,24 @@ One notation of an anchor is the `^`, but it is used without bracket notation an
 The anchor `^` represents the concept "the start of the string"
 
 <ins>End of String Matching</ins>\
-Another anchor notation is the `$` that is placed at the end of the substring, to confirm that 
+Another anchor notation is the `$` that is placed at the end of the substring, to confirm whether or not this substring is at the end of the string passed in.
+
+ie. `re.search(r'ya$',"hiya")`
+
+## Metacharacters
+
+Special characters in strings (ie. `^`, `$`, `[]` (a character class), `-` (a range inside character class))
+
+If you wanted to use those actual characters inside of a string, within a matching clause (ie. match the substring `[hello]`) then you would need to use escape characters to escape those special metacharacters, and "deactivate" their special meanings'
+
+ie. `re.search(r'\[hello\]', "[hello]")` 
+
+<ins>Other Metacharacters</ins>
+* The period [`.`]
+    * Means "any nonempty string"
+    * If used in combination with a search, will always return a match object, if the string is not empty, or not solely a newline character
+    * Can be used to indicate searching for a particular string of characters with something before, or something after (but that something doesn't matter)
+    * ie. `re.search(r'a..',"adf")`
+* The asterisk [`*`]
+    * Means "repitition" and is a quantifier
+    * When the asterisk is used, it means that the character(s) upon which the asterisk is applied (the item preceeding the `*`) can be repeated 0 or more times in the string, for a match to be found
