@@ -102,6 +102,8 @@ print(re.search(r'^[0-9]*$', "23243f56")) ## correct; returns None
     ## in this case, the '^' is not an inversion (it's not inside the range)
     ## it is a beginning anchor
 
-## 
+## if you don't want an empty string to also pass the match,
+## then you must specify that you want at least one character
+print(re.search('^[0-9][0-9]*$'))
 
 
