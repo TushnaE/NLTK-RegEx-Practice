@@ -89,5 +89,19 @@ greeting = "hello world"
 # print(re.search(r'a.$', "ag"))
 
 ## Patterns
-print(re.search(r'.*a$',"kasjdfal"))
+# print(re.search(r'.*a$',"kasjdfal"))
+
+## starts and ends with an 'a'
+# print(re.search(r'^a.*a$', "aa"))
+
+## a string of ONLY digits is passed in
+print(re.search(r'[0-9]*', "9klk")) ## incorrect; stills counts '9'
+print(re.search(r'^[0-9]*$', "23243f56")) ## correct; returns None
+    ## this is a string that begins with, and ends with only digits (as 
+    ## well as every item in between being a digit)
+    ## in this case, the '^' is not an inversion (it's not inside the range)
+    ## it is a beginning anchor
+
+## 
+
 
